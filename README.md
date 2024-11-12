@@ -3,6 +3,12 @@
 This application is built using React JS and interacts with the provided API from [https://api.quicksell.co/v1/internal/frontend-assignment](https://api.quicksell.co/v1/internal/frontend-assignment). 
 It allows users to manage and view tickets in a Kanban board format with various grouping and sorting options.
 
+# Link
+
+https://muditb21-kanban-board.netlify.app/
+
+
+
 ### Commands to run locally
 1.  npm install 
 2.  npm start
