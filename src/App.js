@@ -1,23 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState, useEffect, useRef } from 'react';
+import './App.css'
+import Navbar from './components/Navbar';
+import axios from 'axios';
+import Dashboard from './components/Dashboard';
 
 function App() {
+  const [tickets, setTickets] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [selectedGrouping, setSelectedGrouping] = useState('status');
+  const [selectedOrdering, setSelectedOrdering] = useState('users');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  async function fetchApi() {
+    await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment')
+      .then(response => {
+        setTickets(response.data.tickets);
+        setUsers(response.data.users);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', handleClickOutside);
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app-container">
+        <Navbar
+          selectedGrouping={selectedGrouping}
+          setSelectedGrouping={setSelectedGrouping}
+          selectedOrdering={selectedOrdering}
+          setSelectedOrdering={setSelectedOrdering}
+          users={users}
+          isDropdownOpen={isDropdownOpen}
+          setIsDropdownOpen={setIsDropdownOpen}
+          dropdownRef={dropdownRef}
+        />
+        <Dashboard
+          users={users}
+          tickets={tickets}
+          selectedGrouping={selectedGrouping}
+          selectedOrdering={selectedOrdering}
+        />
+      </div>
     </div>
   );
 }

@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Kanban Board 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application is built using React JS and interacts with the provided API from [https://api.quicksell.co/v1/internal/frontend-assignment](https://api.quicksell.co/v1/internal/frontend-assignment). 
+It allows users to manage and view tickets in a Kanban board format with various grouping and sorting options.
 
-## Available Scripts
+### Commands to run locally
+1.  npm install 
+2.  npm start
 
-In the project directory, you can run:
+You can install axios using:
+-   npm install axios 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Grouping Options
 
-### `npm test`
+The Kanban board application offers three distinct ways to group the data:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **By Status**: Tickets are grouped based on their current status.
+2. **By User**: Tickets are arranged according to the assigned user.
+3. **By Priority**: Tickets are grouped based on their priority level.
 
-### `npm run build`
+### Sorting Options
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Users can sort the displayed tickets in two ways:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Priority**: Arrange tickets in descending order of priority.
+2. **Title**: Sort tickets in ascending order based on their title.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Priority Levels
 
-### `npm run eject`
+The priority levels for the tickets are as follows:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Urgent (Priority level 4)
+- High (Priority level 3)
+- Medium (Priority level 2)
+- Low (Priority level 1)
+- No priority (Priority level 0)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User State Persistence
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The application is built to save the user's view state even after a page reload. This ensures that users can continue their work seamlessly.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technologies Used
 
-## Learn More
+- React JS
+- JavaScript
+- HTML
+- CSS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React
+- Axios (for API interactions)
